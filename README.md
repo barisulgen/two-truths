@@ -20,24 +20,17 @@ npm install
 
 ## Development
 
-Start the server and client in separate terminals:
+Start both the server and client with a single command:
 
 ```bash
-# Terminal 1 - Server (port 3001)
-cd server
-npm run dev
-
-# Terminal 2 - Client (port 5173)
-cd client
 npm run dev
 ```
 
-Open the client URL in 3+ browser tabs to simulate multiple players.
+This runs the server (port 3001) and client (port 5173) concurrently. Open the client URL in 3+ browser tabs to simulate multiple players.
 
 ## Testing
 
 ```bash
-cd server
 npm test
 ```
 
