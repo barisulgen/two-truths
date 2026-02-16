@@ -42,7 +42,7 @@ export default function HomeScreen({
 
   return (
     <div className="screen home-screen">
-      <h1 className="game-title">Lie Detector</h1>
+      <h1 className="game-title">Two Truths</h1>
       <p className="game-subtitle">Can you spot the lie?</p>
 
       {error && <div className="error-banner">{error}</div>}

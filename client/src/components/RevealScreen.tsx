@@ -1,4 +1,4 @@
-import type { VoteResult, TurnPoints } from "@lie-detector/shared";
+import type { VoteResult, TurnPoints } from "@two-truths/shared";
 
 interface RevealScreenProps {
   statements: string[];

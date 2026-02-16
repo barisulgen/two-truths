@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Player } from "@lie-detector/shared";
+import type { Player } from "@two-truths/shared";
 
 interface LobbyScreenProps {
   roomCode: string;

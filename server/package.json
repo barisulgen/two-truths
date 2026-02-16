@@ -1,5 +1,5 @@
 {
-  "name": "@lie-detector/server",
+  "name": "@two-truths/server",
   "version": "1.0.0",
   "scripts": {
     "dev": "tsx watch src/index.ts",
@@ -8,7 +8,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@lie-detector/shared": "*",
+    "@two-truths/shared": "*",
     "express": "^4.21.0",
     "socket.io": "^4.8.0",
     "cors": "^2.8.5"

@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { useSocket } from "../context/SocketContext.tsx";
-import type { GamePhase, Player, PhaseData, RoomState } from "@lie-detector/shared";
+import type { GamePhase, Player, PhaseData, RoomState } from "@two-truths/shared";
 
 export interface GameState {
   phase: GamePhase | null;

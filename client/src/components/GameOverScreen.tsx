@@ -1,4 +1,4 @@
-import type { Player } from "@lie-detector/shared";
+import type { Player } from "@two-truths/shared";
 
 interface GameOverScreenProps {
   players: Player[];

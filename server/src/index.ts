@@ -3,7 +3,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import cors from "cors";
 import { RoomManager } from "./RoomManager.js";
-import type { ClientEvents, ServerEvents, RoomState } from "@lie-detector/shared";
+import type { ClientEvents, ServerEvents, RoomState } from "@two-truths/shared";
 
 const app = express();
 app.use(cors());

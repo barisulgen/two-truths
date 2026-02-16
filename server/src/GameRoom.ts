@@ -3,7 +3,7 @@ import type {
   Player,
   VoteResult,
   TurnPoints,
-} from "@lie-detector/shared";
+} from "@two-truths/shared";
 
 interface Vote {
   playerId: string;
