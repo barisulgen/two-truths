@@ -97,19 +97,24 @@ export class GameRoom {
     truths: [string, string],
     lie: string
   ): void {
+    if (this.phase !== "SUBMITTING") {
+      throw new Error("Not in SUBMITTING phase");
+    }
+
     const currentPlayerId = this.turnOrder[this.currentPlayerIndex];
     if (playerId !== currentPlayerId) {
       throw new Error("Not your turn to submit");
     }
 
-    // Build statements array and shuffle to randomize lie position
-    const statements: string[] = [truths[0], truths[1], lie];
-    // Track original lie position before shuffle
-    const lieMarker = lie;
-
-    this.shuffleArray(statements);
-    this.currentStatements = statements;
-    this.lieIndex = statements.indexOf(lieMarker);
+    // Build tagged items and shuffle to randomize lie position
+    const items = [
+      { text: truths[0], isLie: false },
+      { text: truths[1], isLie: false },
+      { text: lie, isLie: true },
+    ];
+    this.shuffleArray(items);
+    this.currentStatements = items.map((s) => s.text);
+    this.lieIndex = items.findIndex((s) => s.isLie);
     this.votes = [];
     this.revealResults = null;
 
@@ -136,6 +141,10 @@ export class GameRoom {
   // ─── Cast vote ──────────────────────────────────────────────────
 
   castVote(playerId: string, voteIndex: number): void {
+    if (this.votes.some((v) => v.playerId === playerId)) {
+      throw new Error("Already voted");
+    }
+
     const currentPlayerId = this.turnOrder[this.currentPlayerIndex];
     if (playerId === currentPlayerId) {
       throw new Error("The submitter cannot vote on their own statements");

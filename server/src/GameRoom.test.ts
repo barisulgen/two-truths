@@ -183,6 +183,11 @@ describe("GameRoom", () => {
       });
       expect(room.phase).toBe("PRE_REVEAL_TRANSITION");
     });
+
+    it("rejects duplicate votes", () => {
+      room.castVote(voters[0], 0);
+      expect(() => room.castVote(voters[0], 1)).toThrow("Already voted");
+    });
   });
 
   // ─── Vote status ─────────────────────────────────────────────────
@@ -307,11 +312,11 @@ describe("GameRoom", () => {
       expect(results.pointsThisTurn.submitterName).toBe(submitterName);
       expect(results.pointsThisTurn.submitterPoints).toBe(1); // one fooled
       const guesserCorrect = results.pointsThisTurn.guessers.find(
-        (g) => g.name === voters[0].name
+        (g: { name: string; points: number }) => g.name === voters[0].name
       )!;
       expect(guesserCorrect.points).toBe(1);
       const guesserWrong = results.pointsThisTurn.guessers.find(
-        (g) => g.name === voters[1].name
+        (g: { name: string; points: number }) => g.name === voters[1].name
       )!;
       expect(guesserWrong.points).toBe(0);
     });
