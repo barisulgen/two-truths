@@ -1,0 +1,5 @@
+{
+  "name": "lie-detector",
+  "private": true,
+  "workspaces": ["shared", "server", "client"]
+}
